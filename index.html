@@ -1,0 +1,53 @@
+---
+layout: page
+---
+<link rel="stylesheet" href="skins/css/console.css">
+<script type="text/javascript" src="skins/js/console.js"></script>
+
+<div class="row">
+<div class="col-md-10 pull-right">
+    <div class="panel panel-info">
+        <div class="col-md-12 panel-heading">
+            <div class="col-md-7">
+                <div class="col-md-6">
+                    <div class="col-md-6 text-right">二级域名:</div>
+                    <div id="subdomain" class="col-md-6 text-left">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-5 text-right">github:</div>
+                    <div class="col-md-7 text-left">
+                        <a onclick="changeInput(this)" id="linkGithub" data-value="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="panel light">
+                <div class="panel-heading">
+                    <div class="panel-title pull-left">API Key列表</div>
+                    <div class="pull-right">
+                        <button id="btnApply" class="btn btn-default btn-sm" data-toggle="confirmation" data-placement="left" 
+                                data-btn-ok-label="继续" data-btn-ok-icon="icon-like" data-btn-ok-class="btn-success" 
+                                data-btn-cancel-label="取消" data-btn-cancel-icon="icon-close" data-original-title="申请新APIKey确定?"
+                                data-btn-cancel-class="btn-danger">申请<i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table light" id="tblApiKeys">
+                        <thead>
+                            <tr>
+                                <td style="width:10%;">序号</td>
+                                <td style="width:20%;">Key Id</td>
+                                <td style="width:70%;">Key</td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
