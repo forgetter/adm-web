@@ -1,0 +1,9 @@
+# Site settings
+title: imai管理控制台
+email:
+description: imai管理控制台
+
+url:
+gems: 
+ - jemoji
+ - jekyll-gist
