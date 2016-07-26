@@ -164,8 +164,8 @@ function loadApiKeys(){
                 for (var i = 0; i < len; i++) {
                     var tr = '<tr>'
                                 + '<td>' + (i+1) + '</td>'
-                                + '<td>' + json[i].KEY_ID + '</td>'
-                                + '<td>' + json[i].KEY + '</td>'
+                                + '<td title="'+json[i].KEY_ID+'">' + json[i].KEY_ID + '</td>'
+                                + '<td title="'+json[i].KEY+'">' + json[i].KEY + '</td>'
                                 +'</tr>';
                     $tbl.append(tr);
                 }
@@ -188,7 +188,6 @@ function applyApiKey(){
         success: function(data) {
             var json = eval(data);
             if (json.length >0) {
-                toastr['success'](null, '申请新API Key成功');
                 $('#new_id').html(json[0].KEY_ID);
                 $('#new_secret').html(json[0].KEY_SECRET);
                 $('#apikeySuccess').css('display','block');
