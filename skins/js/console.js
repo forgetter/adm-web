@@ -1,4 +1,4 @@
-var webPath = 'https://dev.imaicloud.com/adm';
+var webPath = 'https://dev.imaicloud.com/adm/';
 $(function(){
 	if (!$().confirmation) {
             return;
