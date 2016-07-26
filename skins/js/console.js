@@ -187,12 +187,22 @@ function applyApiKey(){
         },
         success: function(data) {
             var json = eval(data);
-            if (json.msg == 'success') {
+            if (json.length >0) {
                 toastr['success'](null, '申请新API Key成功');
+                $('#new_id').html(json[0].KEY_ID);
+                $('#new_secret').html(json[0].KEY_SECRET);
+                $('#apikeySuccess').css('display','block');
                 loadApiKeys();
             } else {
                 toastr['warning'](null, '申请新API Key失败');
             }
         }
     });
+}
+function closeModal(obj){
+	if ($(obj).hasClass('model')) {
+		$(obj).css('display', 'none');
+	} else {
+		$(obj).parents('.modal').css('display', 'none');
+	}
 }

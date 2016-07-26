@@ -5,49 +5,75 @@ layout: page
 <script type="text/javascript" src="skins/js/console.js"></script>
 
 <div class="row">
-<div class="col-md-10 pull-right">
-    <div class="panel panel-info">
-        <div class="col-md-12 panel-heading">
-            <div class="col-md-7">
-                <div class="col-md-6">
-                    <div class="col-md-6 text-right">二级域名:</div>
-                    <div id="subdomain" class="col-md-6 text-left">
+    <div class="col-md-10 pull-right">
+        <div class="panel panel-info">
+            <div class="col-md-12 panel-heading">
+                <div class="col-md-7">
+                    <div class="col-md-6">
+                        <div class="col-md-6 text-right">二级域名:</div>
+                        <div id="subdomain" class="col-md-6 text-left">
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="col-md-5 text-right">github:</div>
-                    <div class="col-md-7 text-left">
-                        <a onclick="changeInput(this)" id="linkGithub" data-value="">
-                        </a>
+                    <div class="col-md-6">
+                        <div class="col-md-5 text-right">github:</div>
+                        <div class="col-md-7 text-left">
+                            <a onclick="changeInput(this)" id="linkGithub" data-value="">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="panel-body">
-            <div class="panel light">
-                <div class="panel-heading">
-                    <div class="panel-title pull-left">API Key列表</div>
-                    <div class="pull-right">
-                        <button id="btnApply" class="btn btn-default btn-sm" data-toggle="confirmation" data-placement="left" 
-                                data-btn-ok-label="继续" data-btn-ok-icon="icon-like" data-btn-ok-class="btn-success" 
-                                data-btn-cancel-label="取消" data-btn-cancel-icon="icon-close" data-original-title="申请新APIKey确定?"
-                                data-btn-cancel-class="btn-danger">申请<i class="fa fa-plus"></i></button>
+            <div class="panel-body">
+                <div class="panel light">
+                    <div class="panel-heading">
+                        <div class="panel-title pull-left">API Key列表</div>
+                        <div class="pull-right">
+                            <button id="btnApply" class="btn btn-default btn-sm" data-toggle="confirmation" data-placement="left" 
+                                    data-btn-ok-label="继续" data-btn-ok-icon="icon-like" data-btn-ok-class="btn-success" 
+                                    data-btn-cancel-label="取消" data-btn-cancel-icon="icon-close" data-original-title="申请新APIKey确定?"
+                                    data-btn-cancel-class="btn-danger">申请<i class="fa fa-plus"></i></button>
+                        </div>
                     </div>
-                </div>
-                <div class="panel-body">
-                    <table class="table light" id="tblApiKeys">
-                        <thead>
-                            <tr>
-                                <td style="width:10%;">序号</td>
-                                <td style="width:20%;">Key Id</td>
-                                <td style="width:70%;">Key</td>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
+                    <div class="panel-body">
+                        <table class="table light" id="tblApiKeys">
+                            <thead>
+                                <tr>
+                                    <td style="width:10%;">序号</td>
+                                    <td style="width:20%;">Key Id</td>
+                                    <td style="width:70%;">Key</td>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="modal fade in" id="apikeySuccess" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" onclick="closeModal(this)" aria-hidden="true"></button>
+                <div class="alert alert-success"><strong>Success!</strong> 成功申请新API Key！. </div>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning"><strong>Warning!</strong> 请记住新API Key的ID和SECRET，丢失将无法找回！！ </div>
+                <div class="row">
+                    <div class="col-md-3">ID：</div>
+                    <div class="col-md-8"><em id="new_id"></em></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">SECRET：</div>
+                    <div class="col-md-8"><em id="new_secret"></em></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark btn-outline" onclick="closeModal(this)" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
 </div>
