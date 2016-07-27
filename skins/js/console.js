@@ -32,7 +32,7 @@ function loadUserInfo4Etcd(){
     var url = webPath + '/console/getUserInfo4Etcd';
     $.ajax({
         url : url,
-        data: {user_id: $('input[name="user_id"]').val()},
+        data: {user_id: $('#navUserName').html()},
         error: function(e, h, r) {
             toastr['warning'](e, '查询用户信息失败');
         },
@@ -87,7 +87,7 @@ function saveSubdomain(obj){
     var url = webPath + '/console/saveSubdomain';
     $.ajax({
         url : url,
-        data: {subdomain: subdomain.toLocaleLowerCase(), user_id: $('input[name="user_id"]').val()},
+        data: {subdomain: subdomain.toLocaleLowerCase(), user_id: $('#navUserName').html()},
         error: function(e, h, r) {
             toastr['warning'](e, '保存二级域名失败');
         },
@@ -131,7 +131,7 @@ function saveGithub(obj){
     var url = webPath + '/console/updateGithub';
     $.ajax({
         url : url,
-        data: {github_new: $(obj).val(), user_id: $('input[name="user_id"]').val()},
+        data: {github_new: $(obj).val(), user_id: $('#navUserName').html()},
         error: function(e, h, r) {
             toastr['warning'](e, '更新github账号失败');
         },
@@ -158,7 +158,7 @@ function loadApiKeys(){
     var url = webPath + '/console/queryApiKeyList';
     $.ajax({
         url : url,
-        data: {user_id: $('input[name="user_id"]').val()},
+        data: {user_id: $('#navUserName').html()},
         error: function(e, h, r) {
             toastr['warning'](e, '查询有效API Keys出错');
         },
@@ -185,7 +185,7 @@ function applyApiKey(){
     var url = webPath + '/console/applyApiKey';
     $.ajax({
         url : url,
-        data: {user_id: $('input[name="user_id"]').val()},
+        data: {user_id: $('#navUserName').html()},
         error: function(e, h, r) {
             toastr['warning'](e, '申请新API Key出错');
         },
