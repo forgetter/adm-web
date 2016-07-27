@@ -3,7 +3,7 @@ $(function(){
     $('[data-toggle=confirmation]').confirmation({ container: 'body', btnOkClass: 'btn btn-sm btn-success', btnCancelClass: 'btn btn-sm btn-danger'});
     //获取cookie中用户上下文
     var userCtx = getCookie('imaicloud_user'), jsonUserCtx = eval('('+userCtx+')');
-    if (userCtx!= null || userCtx!="") {
+    if (userCtx!= null && userCtx!="") {
         $('#navUserName').html(jsonUserCtx.name);
 	loadUserInfo4Etcd();
 	$('#btnApply').click(function(){
