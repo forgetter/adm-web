@@ -1,21 +1,16 @@
 var webPath = 'https://dev.imaicloud.com/adm/';
 $(function(){
-	if (!$().confirmation) {
-            return;
-    }
     $('[data-toggle=confirmation]').confirmation({ container: 'body', btnOkClass: 'btn btn-sm btn-success', btnCancelClass: 'btn btn-sm btn-danger'});
     //获取cookie中用户上下文
     var userCtx = getCookie('imaicloud_user'), jsonUserCtx = eval('('+userCtx+')');
-    
-    
-
-    $('#navUserName').html(jsonUserCtx.name);
-    loadUserInfo4Etcd();
-	
-    $('#btnApply').click(function(){
-        applyApiKey();
-    });
-    loadApiKeys();
+    if (userCtx!= null || userCtx!="") {
+        $('#navUserName').html(jsonUserCtx.name);
+	loadUserInfo4Etcd();
+	$('#btnApply').click(function(){
+	    applyApiKey();
+	});
+	loadApiKeys();
+    }
 });
 
 function getCookie(c_name) {  
