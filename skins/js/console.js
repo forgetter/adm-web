@@ -3,25 +3,33 @@ $(function(){
 	if (!$().confirmation) {
             return;
     }
-	$('[data-toggle=confirmation]').confirmation({ container: 'body', btnOkClass: 'btn btn-sm btn-success', btnCancelClass: 'btn btn-sm btn-danger'});
-    //根据用户id
-	var param = window.location.search;
-	param = param.substring(1);
-	var params = param.split('&');
-	for(var i = 0; i < params.length; i++) {
-		var p = params[i], k = p.split('=')[0], v = p.split('=')[1];
-		var input = document.createElement('input');
-		input.type="hidden", input.name = k, input.value = v;
-		$(document.body).append(input);
-	}
-    $('#navUserName').html($('input[name="user_id"]').val());
-	loadUserInfo4Etcd();
+    $('[data-toggle=confirmation]').confirmation({ container: 'body', btnOkClass: 'btn btn-sm btn-success', btnCancelClass: 'btn btn-sm btn-danger'});
+    //获取cookie中用户上下文
+    var userCtx = getCookie('imaicloud_user'), jsonUserCtx = eval('('+userCtx+')');
+    
+    
+
+    $('#navUserName').html(jsonUserCtx.name);
+    loadUserInfo4Etcd();
 	
     $('#btnApply').click(function(){
         applyApiKey();
     });
     loadApiKeys();
 });
+
+function getCookie(c_name) {  
+  if (document.cookie.length>0) {  
+    c_start=document.cookie.indexOf(c_name + "=");  
+    if (c_start!=-1) {   
+      c_start=c_start + c_name.length+1 ;  
+      c_end=document.cookie.indexOf(";",c_start);  
+      if (c_end==-1) c_end=document.cookie.length;  
+      return unescape(document.cookie.substring(c_start, c_end));  
+    }   
+  }  
+  return "";  
+}
 
 //查询用户信息：用户名称、绑定二级域名、github账号
 function loadUserInfo4Etcd(){
