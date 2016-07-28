@@ -1,9 +1,9 @@
 (function(){
     window.ADM_SHORTCUT = function(config){
         function initDom(){
-             var contaienr = document.getElementById('admShortcut');
+             var contaienr = document.getElementById('ADM_SHORTCUT');
              if(!contaienr){
-                throw "没有定义ID为admShortcut的包装div";
+                throw "没有定义ID为ADM_SHORTCUT的包装div";
              }
              var portlet = document.createElement('div');
              portlet.className = 'portlet';
