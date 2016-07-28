@@ -1,6 +1,5 @@
 (function(){
     window.ADM_SHOTCUT = function(config){
-
         function initDom(){
              var contaienr = $("#admShotcut");
              if(contaienr.size() == 0){
@@ -11,8 +10,11 @@
         }
         return {
             init:function(){
-				initDom();
+		initDom();
             }
         }
     };
 })();
+window.ADM_SHOTCUT.init = function(options){
+    new window.ADM_SHOTCUT(options).init();
+}
