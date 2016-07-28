@@ -6,7 +6,7 @@
                 throw "没有定义ID为admShortcut的包装div";
              }
              var portlet = document.createElement('div');
-             portlet.class = 'portlet';
+             portlet.className = 'portlet';
 	     portlet.innerHTML = '<div class="portlet-title"><div class="pull-right" style="width:100%;text-align:right;"> <a href="https://dev.imaicloud.com/adm-web/" target="_adm" style="cursor:pointer;">ADM控制台>></a> </div> </div>';
              contaienr.appendChild(portlet);
         }
