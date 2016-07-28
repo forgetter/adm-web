@@ -2,7 +2,7 @@ var webPath = 'https://dev.imaicloud.com/adm/';
 $(function(){
     $('[data-toggle=confirmation]').confirmation({ container: 'body', btnOkClass: 'btn btn-sm btn-success', btnCancelClass: 'btn btn-sm btn-danger'});
     //获取cookie中用户上下文
-    var userCtx = getCookie('imaicloud_user');
+    var userCtx = getCookie('imaicloud_payload');
     if (userCtx!= null && userCtx!="") {
     	var jsonUserCtx = eval('('+userCtx+')');
         $('#navUserName').html(jsonUserCtx.name);
