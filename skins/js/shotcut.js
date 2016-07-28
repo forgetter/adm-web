@@ -14,7 +14,7 @@
             }
         }
     };
+    window.ADM_SHOTCUT.init = function(options){
+	new window.ADM_SHOTCUT(options).init();
+    }
 })();
-window.ADM_SHOTCUT.init = function(options){
-    new window.ADM_SHOTCUT(options).init();
-}
