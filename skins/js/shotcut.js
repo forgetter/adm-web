@@ -1,5 +1,5 @@
 (function(){
-    window.ADM_SHOTCUT = function(config){
+    window.ADM_SHORTCUT = function(config){
         function initDom(){
              var contaienr = $("#admShotcut");
              if(contaienr.size() == 0){
@@ -14,7 +14,7 @@
             }
         }
     };
-    window.ADM_SHOTCUT.init = function(options){
-	new window.ADM_SHOTCUT(options).init();
+    window.ADM_SHORTCUT.init = function(options){
+	new window.ADM_SHORTCUT(options).init();
     }
 })();
