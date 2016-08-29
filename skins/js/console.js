@@ -4,7 +4,7 @@ $(function(){
     //获取cookie中用户上下文
     var userCtx = getCookie('imaicloud_payload');
     if (userCtx!= null && userCtx!="") {
-    	var jsonUserCtx = eval('('+userCtx+')');
+    	var jsonUserCtx = eval('('+$.base64.decode(userCtx)+')');
         $('#navUserName').html(jsonUserCtx.uname);
 	loadUserInfo4Etcd();
 	$('#btnApply').click(function(){
