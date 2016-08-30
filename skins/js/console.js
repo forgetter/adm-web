@@ -11,6 +11,8 @@ $(function(){
 	    applyApiKey();
 	});
 	loadApiKeys();
+    } else {
+    	window.location.href = 'https://dev.imaicloud.com/iam-web/iam-front/signin.html';
     }
 });
 
