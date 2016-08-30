@@ -1,6 +1,5 @@
 var webPath = 'https://dev.imaicloud.com/adm/';
 $(function(){
-    $('[data-toggle=confirmation]').confirmation({ container: 'body', btnOkClass: 'btn btn-sm btn-success', btnCancelClass: 'btn btn-sm btn-danger'});
     //获取cookie中用户上下文
     var userCtx = getCookie('imaicloud_payload');
     if (userCtx!= null && userCtx!="") {
@@ -14,6 +13,8 @@ $(function(){
     } else {
     	window.location.href = 'https://dev.imaicloud.com/iam-web/iam-front/signin.html';
     }
+    $('[data-toggle=confirmation]').confirmation({ container: 'body', btnOkClass: 'btn btn-sm btn-success', btnCancelClass: 'btn btn-sm btn-danger'});
+    
 });
 
 function getCookie(c_name) {  
