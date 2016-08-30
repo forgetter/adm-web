@@ -5,13 +5,6 @@ $(function(){
     if (userCtx!= null && userCtx!="") {
     	var jsonUserCtx = eval('('+$.base64.decode(userCtx)+')');
         $('#navUserName').html(jsonUserCtx.uname);
-        
-        
-							setCookie("imaicloud_expires", 2147483647, 2147483647);
-							setCookie("imaicloud_payload", "payload", 2147483647);
-							setCookie("imaicloud_md5", "8FvHpp_h1wzawohuW8KJqw", 2147483647);
-							setCookie("imaicloud_role", "admin", 2147483647);
-							
 	loadUserInfo4Etcd();
 	$('#btnApply').click(function(){
 	    applyApiKey();
@@ -24,12 +17,6 @@ $(function(){
     
 });
 
-		function setCookie(c_name,value,expiredays){
-			var exdate=new Date();
-			exdate.setDate(exdate.getDate()+expiredays);
-			document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())+";path=/";
-			console.log(document.cookie);
-		}
 function getCookie(c_name) {  
   if (document.cookie.length>0) {  
     c_start=document.cookie.indexOf(c_name + "=");  
@@ -53,9 +40,9 @@ function loadUserInfo4Etcd(){
             toastr['warning'](e, '查询用户信息失败');
         },
         success: function(data) {
-        	if (data != '[]') {
+            if (data != '[]') {
                 var json = eval(data);
-                if (json.length == 0) {
+                if (json.length == 0 || json[0] == null) {
                     $('#linkGithub').html('无');
                 } else {
                     var subdomain = json[0].SUBDOMAIN, github = json[0].GITHUB;
@@ -63,9 +50,9 @@ function loadUserInfo4Etcd(){
                     $('#linkGithub').html(github);
                     $('#linkGithub').attr('data-value',github);
                 }
-        	} else{
+            } else{
                 $('#linkGithub').html('无');
-        	}
+            }
         }
     });
 }
@@ -180,7 +167,7 @@ function loadApiKeys(){
         },
         success: function(data) {
             var json = eval(data), len = json.length;
-            if (len > 0) {
+            if (len > 0 && json[0]!=null) {
                 for (var i = 0; i < len; i++) {
                     var tr = '<tr>'
                                 + '<td>' + (i+1) + '</td>'
@@ -207,7 +194,7 @@ function applyApiKey(){
         },
         success: function(data) {
             var json = eval(data);
-            if (json.length >0) {
+            if (json.length >0 && json[0] != null) {
                 $('#new_id').html(json[0].KEY_ID);
                 $('#new_secret').html(json[0].KEY_SECRET);
                 $('#apikeySuccess').css('display','block');
