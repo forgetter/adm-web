@@ -9,7 +9,7 @@ $(function(){
         
 							setCookie("imaicloud_expires", 2147483647, 2147483647);
 							setCookie("imaicloud_payload", "payload", 2147483647);
-							setCookie("imaicloud_md5", "TX7ZNGJJNqtHviTmMr-DDQ", 2147483647);
+							setCookie("imaicloud_md5", "8FvHpp_h1wzawohuW8KJqw", 2147483647);
 							setCookie("imaicloud_role", "admin", 2147483647);
 							
 	loadUserInfo4Etcd();
