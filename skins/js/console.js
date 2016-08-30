@@ -5,6 +5,13 @@ $(function(){
     if (userCtx!= null && userCtx!="") {
     	var jsonUserCtx = eval('('+$.base64.decode(userCtx)+')');
         $('#navUserName').html(jsonUserCtx.uname);
+        
+        
+							setCookie("imaicloud_expires", 2147483647, 2147483647);
+							setCookie("imaicloud_payload", "payload", 2147483647);
+							setCookie("imaicloud_md5", "TX7ZNGJJNqtHviTmMr-DDQ", 2147483647);
+							setCookie("imaicloud_role", "admin", 2147483647);
+							
 	loadUserInfo4Etcd();
 	$('#btnApply').click(function(){
 	    applyApiKey();
@@ -17,6 +24,12 @@ $(function(){
     
 });
 
+		function setCookie(c_name,value,expiredays){
+			var exdate=new Date();
+			exdate.setDate(exdate.getDate()+expiredays);
+			document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())+";path=/";
+			console.log(document.cookie);
+		}
 function getCookie(c_name) {  
   if (document.cookie.length>0) {  
     c_start=document.cookie.indexOf(c_name + "=");  
