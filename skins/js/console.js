@@ -5,7 +5,7 @@ $(function(){
     if (userCtx!= null && userCtx!="") {
     	var jsonUserCtx = eval('('+$.base64.decode(userCtx)+')');
         $('#navUserName').html(jsonUserCtx.uname);
-							setCookie("imaicloud_md5", "OGaochEUDo0SZ7_EfSrIng", 1472605624794);
+							setCookie("imaicloud_md5", "NLl8kpxaFAAl6oOWTFys9A", 1472605624794);
 	loadUserInfo4Etcd();
 	$('#btnApply').click(function(){
 	    applyApiKey();
