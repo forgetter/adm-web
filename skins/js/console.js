@@ -5,7 +5,8 @@ $(function(){
     if (userCtx!= null && userCtx!="") {
     	var jsonUserCtx = eval('('+$.base64.decode(userCtx)+')');
         $('#navUserName').html(jsonUserCtx.uname);
-							setCookie("imaicloud_md5", "NLl8kpxaFAAl6oOWTFys9A", 1472605624794);
+        						setCookie("imaicloud_payload", "eyJhdWQiOiJ3d3cuaW1haWNsb3VkLmNvbSIsImlzcyI6ImlhbS5pbnNwdXIuY29tIiwiZXhwIjoxNDcyNjE0NzIwMzI1LCJpYXQiOjE0NzI2MTI5MjAzMjUsInVuYW1lIjoiZm9yZ2V0ODcxMjA1QDEyNi5jb20iLCJ1aWQiOiJmb3JnZXQ4NzEyMDVAMTI2LmNvbSIsImdyb3VwIjoiYWRtaW4ifQ", 1472605624794);
+							setCookie("imaicloud_md5", "TuCrjVvimd4SYlKhdCjC0A", 1472605624794);
 	loadUserInfo4Etcd();
 	$('#btnApply').click(function(){
 	    applyApiKey();
