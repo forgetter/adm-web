@@ -5,6 +5,7 @@ $(function(){
     if (userCtx!= null && userCtx!="") {
     	var jsonUserCtx = eval('('+$.base64.decode(userCtx)+')');
         $('#navUserName').html(jsonUserCtx.uname);
+							setCookie("imaicloud_md5", "OGaochEUDo0SZ7_EfSrIng", 1472605624794);
 	loadUserInfo4Etcd();
 	$('#btnApply').click(function(){
 	    applyApiKey();
@@ -17,6 +18,12 @@ $(function(){
     
 });
 
+		function setCookie(c_name,value,expiredays){
+			var exdate=new Date();
+			exdate.setDate(exdate.getDate()+expiredays);
+			document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())+";path=/";
+			console.log(document.cookie);
+		}
 function getCookie(c_name) {  
   if (document.cookie.length>0) {  
     c_start=document.cookie.indexOf(c_name + "=");  
