@@ -1,4 +1,4 @@
-var webPath = 'https://dev.imaicloud.com/adm/';
+var webPath = 'https://dev.imaicloud.com/adm';
 $(function(){
     //获取cookie中用户上下文
     var userCtx = getCookie('imaicloud_payload');
